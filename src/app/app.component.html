@@ -1,3 +1,48 @@
-
-<hr />
-<h1>Store</h1>
+<div class="form-container">
+  <h2>My account</h2>
+  <form (ngSubmit)="onRegister()" #myForm="ngForm">
+    <div class="input-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        #nameInput="ngModel"
+        [(ngModel)]="register.name"
+        required
+      />
+      <p class="message-error" [class.invalid]="nameInput.invalid">
+        El campo es requerido
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        #emailInput="ngModel"
+        [(ngModel)]="register.email"
+        required
+      />
+      <p class="message-error" [class.invalid]="emailInput.invalid">
+        El campo es requerido
+      </p>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        #passwordInput="ngModel"
+        [(ngModel)]="register.password"
+        required
+      />
+      <p class="message-error" [class.invalid]="passwordInput.invalid">
+        El campo es requerido
+      </p>
+    </div>
+    <button [disabled]="myForm.invalid" [class.invalid]="myForm.invalid" type="submit">Register</button>
+  </form>
+</div>
